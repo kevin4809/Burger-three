@@ -26,7 +26,9 @@ const Scene = () => {
     <div className='flex items-center justify-center h-screen w-full'>
       <div className='relative w-full'>
         <div className='absolute inset-0 flex items-center justify-center'>
-          <div className='rounded-full border-2 border-white w-[280px] h-[280px] bg-[#61B5AB] '></div>
+          <div className='rounded-full border-2 border-white w-[200px] h-[200px] bg-[#61B5AB] '></div>
+
+          <div className='bg-black z-20 w-[200px] h-[200px] rounded-full opacity-50 absolute'></div>
         </div>
 
         <div className='relative z-20'>
@@ -37,7 +39,7 @@ const Scene = () => {
             </Canvas>
           </div>
 
-          <img className='absolute right-1/2 translate-x-1/2 bottom-1/2 translate-y-1/2 z-10 w-[200px]' src='/bg.svg' alt='bg' />
+          <img className='absolute right-1/2 translate-x-1/2 bottom-1/2 translate-y-1/2 z-10 w-[170px]' src='/bg.svg' alt='bg' />
         </div>
       </div>
     </div>
