@@ -2,30 +2,31 @@
 
 import React, { useRef } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
-import { OrbitControls } from '@react-three/drei';
+import { useGLTF } from '@react-three/drei';
+import { redirect } from 'next/dist/server/api-utils';
 
-const SpinningCube = () => {
+const MuffinModel = () => {
+  const { scene } = useGLTF('/muffin.glb');
   const meshRef = useRef();
 
   useFrame(() => {
-    meshRef.current.rotation.y += 0.01;
-    meshRef.current.rotation.x += 0.01;
+    if (meshRef.current) {
+      meshRef.current.rotation.z += 0.01;
+    }
   });
 
-  return (
-    <mesh ref={meshRef}>
-      <boxGeometry args={[1, 1, 1]} />
-      <meshStandardMaterial color='green' />
-    </mesh>
-  );
+  return <primitive ref={meshRef} object={scene} rotation={[1.6, 0, 0]} />;
 };
 
 const Scene = () => {
+  const handleClick = () => {
+    window.location.href = 'http://localhost:60901/#/563/company/brand/brand-content';
+  };
+
   return (
-    <Canvas style={{ height: '100vh', width: '100vw' }}>
-      <ambientLight intensity={0.5} />
-      <SpinningCube />
-      <OrbitControls />
+    <Canvas onClick={handleClick} style={{ height: '100vh', width: '100vw' }}>
+      <ambientLight intensity={2} />
+      <MuffinModel />\
     </Canvas>
   );
 };
