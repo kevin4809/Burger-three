@@ -18,22 +18,17 @@ const MuffinModel = () => {
 };
 
 const Scene = () => {
-  const handleClick = () => {
-    window.location.href = 'http://localhost:60901/#/563/company/brand/brand-content';
-  };
-
   return (
     <div className='flex items-center justify-center h-screen w-full'>
       <div className='relative w-full'>
         <div className='absolute inset-0 flex items-center justify-center'>
           <div className='rounded-full border-2 border-white w-[200px] h-[200px] bg-[#61B5AB] '></div>
-
           <div className='bg-black z-20 w-[200px] h-[200px] rounded-full opacity-50 absolute'></div>
         </div>
 
         <div className='relative z-20'>
           <div className='relative z-30'>
-            <Canvas onClick={handleClick} className='w-full'>
+            <Canvas className='w-full'>
               <ambientLight intensity={2.3} />
               <MuffinModel />
             </Canvas>
