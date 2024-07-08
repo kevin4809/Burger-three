@@ -15,7 +15,7 @@ const MuffinModel = () => {
   });
 
   const handleClick = () => {
-    alert('Muffin touched!');
+    console.log('Funciona Mamahuevoooooooooooooooooo');
   };
 
   return <primitive ref={meshRef} object={scene} rotation={[1.6, 0, 0]} scale={[0.6, 0.6, 0.6]} onClick={handleClick} />;
