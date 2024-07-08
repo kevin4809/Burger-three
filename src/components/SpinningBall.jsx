@@ -1,19 +1,12 @@
 'use client';
 
-import React, { useRef, useEffect } from 'react';
-import { Canvas, useFrame, useThree } from '@react-three/fiber';
+import React, { useRef } from 'react';
+import { Canvas, useFrame } from '@react-three/fiber';
 import { useGLTF } from '@react-three/drei';
-import * as THREE from 'three';
 
 const MuffinModel = () => {
   const { scene } = useGLTF('/muffin.glb');
   const meshRef = useRef();
-
-  const handleTouch = () => {
-    alert('Funciona mamahuevossss');
-    console.log('Mama tengo hambre');
-    window.location.href = 'https://www.youtube.com/watch?v=RHd7CrVHUx8';
-  };
 
   useFrame(() => {
     if (meshRef.current) {
@@ -21,7 +14,11 @@ const MuffinModel = () => {
     }
   });
 
-  return <primitive ref={meshRef} object={scene} rotation={[1.6, 0, 0]} scale={[0.6, 0.6, 0.6]} onClick={handleTouch} />;
+  const handleClick = () => {
+    alert('Funcionaaaaaaaaaaaaa');
+  };
+
+  return <primitive ref={meshRef} object={scene} rotation={[1.6, 0, 0]} scale={[0.6, 0.6, 0.6]} onClick={handleClick} />;
 };
 
 const Scene = () => {
